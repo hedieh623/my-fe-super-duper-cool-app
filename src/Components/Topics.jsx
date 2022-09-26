@@ -5,9 +5,7 @@ const Topics = ({ articles }) => {
   const [allTopics, setAllTopics] = useState([]);
   useEffect(() => {
     axios
-      .get(
-        `https://little-market.herokuapp.com/api/items?category_name=${category}`
-      )
+      .get(`https://my-fe-super-duper-cool-app.herokuapp.com/=${articles}`)
       .then(({ data: { topics } }) => {
         setAllTopics(topics);
       })
