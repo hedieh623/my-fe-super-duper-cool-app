@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from "axios"
+import Header from "./Components/Header"
+import Topics from "./Components/Topics"
+import Articles from "./Components/Articles";
+import Articleid from "./Components/ArticlesID"
+import Comments from "./Components/Comments"
+import { Route, Routes } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from 'react';
+
+
+
 
 function App() {
+  const [articles, setArticles] = { useState };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Articles setArticles={setArticles} />
+      <Routes>
+        <Route path="/" element={<Topics articles={articles} />}></Route>
+        <Route path="/:article_topic" element={<Topics />}></Route>
+      </Routes>
     </div>
   );
 }
