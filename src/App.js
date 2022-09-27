@@ -3,18 +3,24 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./Components/Header";
 import Articles from "./Components/Articles";
+import Nav from "./Components/Nav";
+import Topics from "./Components/Topics";
+import Home from "./Components/Home";
 
 
 
 function App() {
-const [articles, setArticles] = useState([]);
 
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Articles setArticles ={setArticles}/>
-        
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/articles" element={<Articles />}></Route>
+          <Route path="/topics" element={<Topics />}></Route>
+          <Route path= "/topics/:articletopic" element={<Articles />}></Route>
+        </Routes>
       </div>
     </BrowserRouter>
   );
