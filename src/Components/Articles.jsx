@@ -17,7 +17,11 @@ const Articles = () => {
     <main>
       <ul>
         {articles.map((article) => {
-          return <li key={article.article_id}>{article.title}</li>;
+          return (
+            <li key={article.article_id}>
+              {article.title},{article.created_at},{article.author}
+            </li>
+          );
         })}
       </ul>
     </main>
