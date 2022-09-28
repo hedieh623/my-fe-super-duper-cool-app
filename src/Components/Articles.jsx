@@ -16,7 +16,7 @@ const Articles = ({ setTopicTerm}) => {
 
   useEffect(() => {
     axios
-      .get(`https://my-fe-super-duper-cool-app.herokuapp.com/api/articles`, {
+      .get(`https://my-fe-super-duper-cool-app.herokuapp.com/api/articles`,{
     params: {
       topic: articletopic //topic is  a query from the backend 
     }})
