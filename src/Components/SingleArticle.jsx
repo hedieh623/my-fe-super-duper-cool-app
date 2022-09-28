@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
 
 const SingleArticle = ({ setTopicTerm}) => {
@@ -20,15 +19,14 @@ useEffect(() => {
   }, [])};
    return (
     <main>
-      <Articles />
       <ul>
+        <li>
+            <Link to={"/articles/1"}></Link>
+        </li>
         {SingleArticle.map((article) => {
-          <button type="button">Click Me!</button>;
-
           return (
             <li key={article.article_id}>
-              <h2>{article.title}</h2>
-              <p>Created At: {article.body}</p>
+              <Link to={`/articles/${article.body}`}> {article.body} </Link>
             </li>
           );
         })}

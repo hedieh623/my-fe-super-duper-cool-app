@@ -31,7 +31,6 @@ const Articles = ({ setTopicTerm}) => {
       <Topics />
       <ul>
         {articles.map((article) => {
-          <button type="button">Click Me!</button>;
 
           return (
             <li key={article.article_id}>
