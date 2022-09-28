@@ -6,6 +6,7 @@ import Articles from "./Components/Articles";
 import Nav from "./Components/Nav";
 import Topics from "./Components/Topics";
 import Home from "./Components/Home";
+import SingleArticles from "./Components/SingleArticle";
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/articles" element={<Articles />}></Route>
           <Route path="/topics" element={<Topics />}></Route>
           <Route path= "/topics/:articletopic" element={<Articles />}></Route>
+          <Route path = "/articles/:article_id" element={<SingleArticles/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,40 +1,35 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 const SingleArticle = ({ setTopicTerm}) => {
   const [singlearticle, setsingleArticle] = useState([]);
-  const { singlearticleparam } = useParams();
-  console.log(singlearticleparam);
+  const {article_id} = useParams();
+  console.log({ article_id });
 
-useEffect(() => {
+  useEffect(() => {
     axios
-      .get(`https://my-fe-super-duper-cool-app.herokuapp.com/api/articles/1`
+      .get(
+        `https://my-fe-super-duper-cool-app.herokuapp.com/api/articles/${article_id}`
+      )
       .then(({ data }) => {
-        console.log(data.singlearticle);
-        setsingleArticle(data.singlearticle);
+        console.log(`data =${JSON.stringify(data)}`);
+        console.log(`data.article =${JSON.stringify(data.article)}`);
+        setsingleArticle(data.article);
       })
-      .catch((err) => {}));
-  }, [])};
-   return (
+      .catch((err) => {});
+  }, [article_id]);
+  return (
     <main>
-      <ul>
-        <li>
-            <Link to={"/articles/1"}></Link>
-        </li>
-        {SingleArticle.map((article) => {
-          return (
-            <li key={article.article_id}>
-              <Link to={`/articles/${article.body}`}> {article.body} </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <h1>{singlearticle.title}</h1>
+      <p>{singlearticle.body}</p>
     </main>
   );
-;
+}
 
 
 
-export default SingleArticles;
+export default SingleArticle;

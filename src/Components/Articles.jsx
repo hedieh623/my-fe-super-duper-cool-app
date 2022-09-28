@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import Topics from "./Topics";
+
 
 
 
@@ -12,7 +13,6 @@ import Topics from "./Topics";
 const Articles = ({ setTopicTerm}) => {
   const [articles, setArticles] = useState([]);
   const { articletopic } = useParams();
-  console.log(articletopic)
 
   useEffect(() => {
     axios
@@ -21,7 +21,7 @@ const Articles = ({ setTopicTerm}) => {
       topic: articletopic //topic is  a query from the backend 
     }})
       .then(({ data }) => {
-        console.log(data.articles);
+        // console.log(`data =${JSON.stringify(data.articles)}`);
         setArticles(data.articles);
       })
       .catch((err) => {});
@@ -34,9 +34,12 @@ const Articles = ({ setTopicTerm}) => {
 
           return (
             <li key={article.article_id}>
-              <h2>{article.title}</h2>
+              <Link to={`/articles/${article.article_id}/`}>
+                <h2>{article.title}</h2>
+              </Link>
+
               <p>Created At: {article.created_at}</p>
-              <p> Topic: {article.topic}</p> 
+              <p> Topic: {article.topic}</p>
               <p>Author: {article.author}</p>
             </li>
           );
