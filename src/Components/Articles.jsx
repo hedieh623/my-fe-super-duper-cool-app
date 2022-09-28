@@ -41,7 +41,6 @@ const Articles = ({ setTopicTerm}) => {
               <p>Author: {article.author}</p>
             </li>
           );
-        
         })}
       </ul>
     </main>
