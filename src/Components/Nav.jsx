@@ -10,6 +10,9 @@ const Nav = () => {
         <li>
           <Link to={"/topics"}> Topics </Link>
         </li>
+        <li>
+          <Link to={"/articles/1"}></Link>
+        </li>
       </ul>
     </nav>
   );
