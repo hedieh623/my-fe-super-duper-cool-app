@@ -4,6 +4,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Votes from "./Votes";
+import Comments from "./Comments";
+import CommentAdder from "./Commentadder";
 // import React from "react";
 
 
@@ -26,6 +28,7 @@ const SingleArticle = () => {
       <h1>{singlearticle.title}</h1>
       <p className="body">{singlearticle.body}</p>
       <Votes articleID={article_id} votes={singlearticle.votes} />
+      <Comments articleID={article_id} comments={singlearticle.comments} />
     </main>
   );
 }
