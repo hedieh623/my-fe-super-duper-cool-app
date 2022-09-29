@@ -18,6 +18,17 @@ const Votes = (props) => {
     ).catch((err)=>{seterrormsg("Try again later")});
     ;
   }
+function handleDown() {
+  setVotescount((currentVotesCount) => currentVotesCount - 1);
+  axios
+    .patch(
+      `https://my-fe-super-duper-cool-app.herokuapp.com/api/articles/${article_id}`,
+      { inc_votes: 1 }
+    )
+    .catch((err) => {
+      seterrormsg("Try again later");
+    });
+}
   if(errormsg){
     return(<p>{errormsg}</p>)
   }
@@ -25,7 +36,7 @@ const Votes = (props) => {
     <>
       <p className="votes"> VOTES: {props.votes + votescount}</p>
       <button type="Upvote" onClick = {()=>handleUpper()}>Up</button>
-      <button type="Downvote">Down</button>
+      <button type="Downvote"onClick = {()=>handleDown()}>Down</button>
     </>
   );
   
