@@ -29,9 +29,7 @@ function handleDown() {
       seterrormsg("Try again later");
     });
 }
-  if(errormsg){
-    return(<p>{errormsg}</p>)
-  }
+  
   return (
     <>
       <p className="votes"> VOTES: {props.votes + votescount}</p>
