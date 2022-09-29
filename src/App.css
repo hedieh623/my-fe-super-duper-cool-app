@@ -25,7 +25,15 @@
   font-size: calc(10px + 2vmin);
   color: orange
 }
-
+.comments{
+   color: black;
+  padding: 15px 60x;
+  text-align: justify;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-style: solid;
+}
 .App-link {
   color: #61dafb;
 }

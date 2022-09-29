@@ -17,16 +17,18 @@ const Comments = (props) =>{
           `https://my-fe-super-duper-cool-app.herokuapp.com/api/articles/${article_id}/comments/`
         )
         .then(({ data }) => {
-          console.log(data);
           setComments(data.comments);
         });
     }, []);
     return (
       <>
       
-          COMMENTS:{comments.map((comments) => <p className="comments">{comments.body},{comments.created_at}</p>)}
+          COMMENTS:{comments.map((comments) => <p className="comments">{comments.body},{comments.created_at},From: {comments.author}</p>)}
       </>
     );};
 
 
 export default Comments
+
+
+
