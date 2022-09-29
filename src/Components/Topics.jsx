@@ -17,20 +17,22 @@ const Topics = () => {
       .catch((err) => {});
   }, []);
   return (
-    <main>
-      <ul>
-        <li>
-          <Link to={"/articles"}> All Articles</Link>
-        </li>
-        {topics.map((topic) => {
-          return (
-            <li key={topic.slug}>
-              <Link to={`/topics/${topic.slug}`}> {topic.slug} </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </main>
+    <div className="Allofthework">
+      <main>
+        <ul className="List">
+          <li>
+            <Link to={"/articles"}> All Articles</Link>
+          </li>
+          {topics.map((topic) => {
+            return (
+              <li key={topic.slug}>
+                <Link to={`/topics/${topic.slug}`}> {topic.slug} </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </main>
+    </div>
   );
 };
 

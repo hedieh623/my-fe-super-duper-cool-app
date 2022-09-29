@@ -25,7 +25,8 @@ const SingleArticle = ({ setTopicTerm}) => {
   return (
     <main>
       <h1>{singlearticle.title}</h1>
-      <p>{singlearticle.body}</p>
+      <p className="body">{singlearticle.body}</p>
+      <p className="votes"> VOTES: {singlearticle.votes}</p>
     </main>
   );
 }
