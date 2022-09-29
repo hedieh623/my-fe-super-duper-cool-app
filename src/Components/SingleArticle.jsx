@@ -3,12 +3,13 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import Votes from "./Votes";
+// import React from "react";
 
 
-const SingleArticle = ({ setTopicTerm}) => {
+const SingleArticle = () => {
   const [singlearticle, setsingleArticle] = useState([]);
   const {article_id} = useParams();
-  console.log({ article_id });
 
   useEffect(() => {
     axios
@@ -16,8 +17,6 @@ const SingleArticle = ({ setTopicTerm}) => {
         `https://my-fe-super-duper-cool-app.herokuapp.com/api/articles/${article_id}`
       )
       .then(({ data }) => {
-        console.log(`data =${JSON.stringify(data)}`);
-        console.log(`data.article =${JSON.stringify(data.article)}`);
         setsingleArticle(data.article);
       })
       .catch((err) => {});
@@ -25,11 +24,24 @@ const SingleArticle = ({ setTopicTerm}) => {
   return (
     <main>
       <h1>{singlearticle.title}</h1>
-      <p>{singlearticle.body}</p>
+      <p className="body">{singlearticle.body}</p>
+      <Votes articleID={article_id} votes={singlearticle.votes} />
     </main>
   );
 }
 
+// const articleCard = ({article}) =>{
+//   const [optimisticVote, setOptimisticVote] = useState
+//   const handleClick =()=>{
 
+//   }
+
+//   return(
+//     <li className= "Games__card">
+//       <h2>{article.article_title}</h2>
+//       <p>Votes: {article.votes}</p>
+//     </li>
+//   )
+// };
 
 export default SingleArticle;
